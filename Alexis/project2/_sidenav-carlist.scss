@@ -1,0 +1,267 @@
+#slide-out.side-nav {
+			margin-top: 64px;
+    	height: 100%;
+    	transition: .5s translate ease;
+	.toggle-all {
+			line-height: 3em;
+			padding-left: 1.5em;
+			font-weight: normal;
+			background: #29b6f6;
+			color: white;
+			justify-content: space-between;
+			.switch {
+				label {
+					input[type=checkbox]:checked + .lever:after {
+						background-color: #8bcae5;
+					}
+					input[type=checkbox]:checked + .lever {
+						background-color: white;
+					}
+				}
+		}
+	}
+	.collapsible.cars {
+		li {
+			& > .row {
+				margin-bottom: 0;
+			}
+		}
+		&.active {
+			transform: translateX(0px) !important;
+		}
+
+
+		.collapsible-header {
+			border-bottom: 1px solid #eaeaea;
+			color: rgba(0, 0, 0, 0.67);
+			height: 3.3em;
+			position: relative;
+			.col, .row {
+				padding: 0;
+				margin: 0;
+			}
+			svg.car-icon {
+    				fill: transparent;
+						width: 2em;
+    				height: 2em;
+						display: block;
+			}
+			.error {
+				position: absolute;
+				top: .4em;
+				left: 2.2em;
+				background-color: white;
+				border-radius: 1em;
+				width: 1.3em;
+				height: 1.2em;
+				i {
+					position: absolute;
+					top: -.1em;
+					left: -.1em;
+					font-size: 2em;
+				}
+			}
+			p {
+				line-height: 1.4em;
+				margin: 0;
+				text-align:left;
+			}
+			.speed {
+				font-size: .9em;
+				font-weight: normal;
+				line-height: 1.4em;
+				margin: 0;
+				span {
+					padding-top: .15em;
+				}
+				i {
+					margin: 0;
+					font-size: 1.3em;
+					width: 1em;
+					height: 1em;
+					color: #85b855;
+					&.stop {
+						color: #d64d4d;
+					}
+					&.play {
+						@include animation(pulse-play 1.5s infinite ease-in-out);
+					}
+				}
+			}
+			.chip {
+				height: 20px;
+			    	line-height: 20px;
+			    	padding: 0 7px;
+			    	font-weight: bold;
+			    	margin-bottom: 0;
+			    	background: transparent;
+			    	border: 1px solid #eee;
+			    	text-align: center;
+				font-size: 0.79em;
+			}
+		}
+		.toggler {
+			padding: 0 1em 0 0.1em;
+			margin-right: -0.95em;
+			margin-top: -3.3em;
+			height: 3.3em;
+    			background: #f9f9f9;
+			display: block;
+			label {
+				input[type=checkbox]:checked + .lever:after {
+					background-color: #29b6f6;
+				}
+				input[type=checkbox]:checked + .lever {
+					background-color: #8bcae5;
+				}
+			}
+		}
+		.collapsible-body {
+			padding: 1em;
+			color: rgba(0, 0, 0, 0.67);
+			background: white;
+			line-height: 38px;
+			.row {
+				margin-bottom: 0;
+				&:first-child {
+					.col {
+						&.error {
+							i.left {
+								margin-right: 0;
+							}
+						}
+						&.battery {
+							height: 2em;
+							padding: .2em;
+							line-height: 0;
+						}
+						&.signal {
+							height: 2em;
+							padding: .2em;
+							line-height: 0;
+						}
+					}
+				}
+				&:nth-child(4) {
+					margin-bottom: 10px;
+				}
+			}
+			$battery-colors: #f4511e, #fb8c00, #388e3c, #388e3c;
+			@for $i from 1 through length($battery-colors) {
+				.bar-#{$i} {
+					svg.battery-icon {
+						height: 1.7em;
+
+								g {
+									g:first-child {
+										fill: nth($battery-colors, $i);
+									}
+									g {
+										color: transparent;
+											&:nth-child(-n + #{$i + 1}) {
+												color: nth($battery-colors, $i);
+										}
+									}
+								}
+						}
+				}
+			}
+			$signal-colors: #f4511e, #fb8c00, #ff8f00, #388e3c, #2e7d32;
+			@for $i from 1 through length($signal-colors) {
+				.bar-#{$i} {
+					svg.signal-icon {
+						height: 1.5em;
+
+								path {
+									opacity: 0.3;
+									color: nth($signal-colors, $i);
+									&:nth-child(-n + #{$i}) {
+											opacity: 1;
+								}
+							}
+						}
+				}
+			}
+			i {
+				display: block;
+				height: 38px;
+				line-height: 38px;
+			}
+			p {
+				line-height: 1.4em;
+				margin: 0;
+			}
+			%blue-buttons {
+						text-transform: none;
+						text-align: left;
+						line-height: inherit;
+						color: white;
+    				margin-bottom: 10px;
+    				transition: .3s all ease;
+						height: auto;
+						i {
+							font-size: 24px;
+						}
+				@include hover-supported() {
+        				color: white;
+								background: #03a9f4;
+    				}
+			}
+			.driver {
+				@extend %blue-buttons;
+				display: flex !important;
+				padding: 0;
+			}
+			.location {
+				padding: 1em 0;
+				width: 100%;
+				@extend %blue-buttons;
+
+			}
+			.chip {
+				font-size: 0.79em;
+				&.expiring {
+					background-color: #ffa726;
+				}
+			}
+			.history-btn {
+				padding: 0 .3em 0 0;
+    				text-transform: none;
+    				margin-bottom: 1em;
+    				display: block;
+				i {
+							background: rgba(0,0,0,0.2);
+    					padding: 0 .5rem;
+				}
+				span {
+    					position: relative;
+    					margin: 0 1em;
+				}
+			}
+		}
+		li.active {
+			background: rgba(0,0,0,0.05);
+			.collapsible-header {
+				background: #efefef;
+    				border-left: 4px solid #03a9f4;
+				.chip {
+					border: 1px solid #cfcfcf;
+				}
+			}
+			.toggler {
+				background-color: #dcdcdc;
+			}
+		}
+	}
+	@media #{$small-and-down} {
+			margin-top: 56px;
+			height: calc(100vh - 56px);
+	}
+}
+
+#sidenav-overlay, .drag-target {
+	@media #{$large-and-up} {
+	z-index: -1;
+	display: none;
+	}
+}

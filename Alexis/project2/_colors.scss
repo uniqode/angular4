@@ -1,0 +1,30 @@
+$car-colors: #9A2125, #BF4044, #D34148, #E0576D, #ED7130, #EE6029, #D14F0D, #BA5536, #884200, #673200, #9A3721, #C12F15, #E73F21, #FF5D40, #DA2724, #C03142;
+
+
+
+@for $i from 1 through length($car-colors) {
+  #slide-out {
+    li {
+      &:nth-of-type(#{$i}n) {
+        svg.car-icon {
+            color: nth($car-colors, $i);
+        }
+      }
+    }
+  }
+  .leaflet-marker-icon {
+    &:nth-child(#{$i}n) {
+      .marker {
+        color: nth($car-colors, $i);
+      }
+      .marker-tooltip {
+        .driver, i.person, svg, .speed {
+          color: nth($car-colors, $i);
+        }
+        .tooltip-header {
+          background: nth($car-colors, $i);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+footer {
+  @extend .grey, .lighten-3;
+
+  padding-bottom: 1em;
+
+  h2 {
+    font-size: 2rem;
+    color: $primary-color;
+    }
+  h3 {
+    font-size: 1.5rem;
+    color: $primary-color;
+    font-weight: bold;
+    }
+  p {
+      font-size: 1.3rem;
+      @extend .grey-text.text-darken-3;
+      font-weight: 300;
+      @media #{$large-and-up} {
+          font-size: 1rem;
+        }
+      @media #{$extra-large-and-up} {
+          font-size: 1.3rem;
+        }
+      
+    }
+  i, a {
+       color: $primary-color;
+    }
+  input {
+      font-size: 1.2em !important;
+      font-weight: 300;
+      border-bottom: 1px solid #C5C5C5 !important;
+      &::-webkit-input-placeholder {
+          @extend .grey-text.text-darken-3;
+        }
+    }
+  hr {
+      border-top: 1px solid #C5C5C5;
+      border-bottom: 1px solid white;
+    }
+  textarea {
+      border: none;
+      border-bottom: 1px solid #C5C5C5;
+      height: auto;
+      overflow: hidden;
+      font-size: 1.2em !important;
+      font-weight: 300;
+      &::-webkit-input-placeholder {
+          @extend .grey-text.text-darken-3;
+        }
+    }
+  button {
+      margin-top: 1em;
+      @extend .light-green.darken-1;
+      i {
+          @extend .white-text;
+        }
+    }
+}

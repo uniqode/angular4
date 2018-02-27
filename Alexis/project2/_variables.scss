@@ -1,0 +1,131 @@
+$primary-color: #039be5;
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+     -moz-transform: $transform;
+      -ms-transform: $transform;
+          transform: $transform;
+}
+
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+     -moz-animation: $animation;
+      -ms-animation: $animation;
+          animation: $animation;
+}
+
+@mixin linear-gradient-b($args...) {
+   background-image: -o-linear-gradient($args);
+   background-image: -moz-linear-gradient($args);
+   background-image: -webkit-linear-gradient($args);
+   background-image: linear-gradient($args);
+}
+
+@mixin hover-supported {
+    @media not all and (hover: none) {
+        &:hover {
+            @content;
+        }
+    }
+}
+
+@keyframes pulse-play {
+    0% { @include transform(scale(0.7)); opacity: 0.5; }
+    50% { @include transform(scale(1)); opacity: 1; }
+    100% { @include transform(scale(0.7)); opacity: 0.5; }
+
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+
+}
+
+@keyframes jump {
+  0%{
+	@include transform(translateY(0));
+  }
+  20%{
+	@include transform(translateY(0));
+  }
+  40%{
+	@include transform(translateY(-30px));
+  }
+  50%{
+	@include transform(translateY(0));
+  }
+  60%{
+	@include transform(translateY(-15px));
+  }
+  80%{
+	@include transform(translateY(0));
+  }
+  100%{
+	@include transform(translateY(0));
+  }
+}
+
+@keyframes loader-share {
+  0% {
+    @include transform(rotate(0deg));
+  }
+
+  25% {
+    @include transform(rotate(180deg));
+  }
+
+  50% {
+    @include transform(rotate(180deg));
+  }
+
+  75% {
+    @include transform(rotate(360deg));
+  }
+
+  100% {
+    @include transform(rotate(360deg));
+  }
+}
+
+@keyframes loader-inner-share {
+  0% {
+    height: 0%;
+  }
+
+  25% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+
+  75% {
+    height: 100%;
+  }
+
+  100% {
+    height: 0%;
+  }
+}
+
+
+@keyframes spin {
+    0%   {
+        @include transform(rotate(0deg));
+    }
+    100% {
+        @include transform(rotate(360deg));
+    }
+}
+
+@keyframes shake {
+    0% { @include transform(translate(30px)); }
+    20% { @include transform(translate(-30px)); }
+    40% { @include transform(translate(15px)); }
+    60% { @include transform(translate(-15px)); }
+    80% { @include transform(translate(8px)); }
+    100% { @include transform(translate(0px)); }
+}

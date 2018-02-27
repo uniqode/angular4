@@ -1,0 +1,55 @@
+$primary-color: #0061A7;
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+h1,
+h2 {
+  font-weight: bold !important;
+}
+.redactor-editor, .redactor-box {
+    background: transparent !important;
+}
+
+#sidenav-overlay {
+  z-index: 996 !important;
+}
+
+.btn.read-more {
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+.preloader-background {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	z-index: 999;
+	padding: 0 10%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	.indeterminate {
+	    background-color: $primary-color;
+	}
+}
+
+.sub-page {
+    h1 {
+        margin-top: 1.5em;
+        font-size: 2.5rem;
+        color: $primary-color;
+    }
+    p {
+        font-size: 1.5em;
+        line-height: 1.7em;
+        font-weight: 300;
+    }
+}

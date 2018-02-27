@@ -1,0 +1,16 @@
+$primary-color: #039be5;
+
+@mixin linear-gradient-b($args...) {
+ background-image: -o-linear-gradient($args);
+ background-image: -moz-linear-gradient($args);
+ background-image: -webkit-linear-gradient($args);
+ background-image: linear-gradient($args);
+}
+
+%main-button {
+  border-radius: 3em;
+  text-transform: none;
+  font-weight: bold;
+
+  @include linear-gradient-b(90deg, #f16170, #f6a66f);
+}

@@ -1,0 +1,289 @@
+#plans-section {
+  button {
+    &.top {
+      @extend .white-text;
+      @include linear-gradient-b(90deg, #f16170, #f6a66f);
+      text-transform: none;
+      border: .1em solid white;
+      border-radius: 0;
+      box-shadow: none;
+      height: 3em;
+      margin-top: -4.3em;
+      font-size: 1.1rem;
+      transition: background-color all 1s;
+      &:nth-child(2) {
+        border-left: 0;
+        border-right: 0;
+      }
+      &.active {
+        @include linear-gradient-b(0deg, transparent, transparent);
+        @extend .white, .black-text;
+        height: 4em;
+        margin-top: -4em;
+        font-weight: 500;
+      }
+    }
+    &.order {
+        @extend %main-button;
+        width: auto;
+    }
+    &.active {
+      @include linear-gradient-b(45deg, #00a1e6, #99ff00);
+    }
+  }
+  .col:nth-child(2) {
+    position: relative;
+    .favorite {
+      position: absolute;
+      font-size: .7rem;
+      font-weight: bold;
+      padding: .2em .4em;
+      left: .5em;
+      top: -1em;
+      z-index: 1;
+      height: auto;
+      width: auto;
+      @include linear-gradient-b(90deg, #00a1e6, #99ff00);
+      &:before {
+        content: '';
+        margin-top: 1.15rem;
+        margin-left: -.25rem;
+        width: 0;
+        height: 0;
+        border-left: .45rem solid transparent;
+        border-right: 0 solid transparent;
+        border-top: .6rem solid #082937;
+        position: absolute;
+      }
+    }
+  }
+  .plan-header {
+    padding: .2rem 0;
+    font-weight: 300;
+    font-size: 1.7rem;
+    &:before {
+      width: 15px;
+      height: 15px;
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 20px solid #f00;
+    }
+  }
+  .plan-price {
+    position: relative;
+    padding: 1em 0 .5em 1.3em;
+    span {
+      position: relative;
+      &:first-child {
+
+        color: $primary-color;
+        font-size: 3rem;
+        font-weight: 300;
+      }
+      &:nth-child(2) {
+        color: $primary-color;
+        top: -.8em;
+        font-size: 1.5rem;
+        font-weight: 300;
+      }
+      &:nth-child(3) {
+        font-size: .8rem;
+        font-weight: 500;
+        left: -2em;
+
+      }
+    }
+  }
+  .plan-points {
+    margin-top: 1em;
+    div {
+      height: 2em;
+      padding: 1.3em;
+      border-top: 1px solid #eee;
+      svg {
+        width: 2em;
+        height: 2em;
+        margin-right: 1em;
+      }
+      &:nth-child(4) {
+        svg {
+          width: 3.3em;
+          height: 3.3em;
+        }
+      }
+      &:last-child {
+        border-bottom: 1px solid #eee;
+      }
+      span {
+        font-size: .8rem;
+        line-height: 1rem;
+      }
+      &.big {
+        height: 4em;
+        svg {
+          width: 4.9em;
+          height: 4.9em;
+        }
+      }
+    }
+  }
+  @media #{$medium-and-down} {
+    button {
+      &.top {
+        width: 33%;
+        font-size: .8rem;
+        padding: 0;
+        margin-top: -4rem;
+        line-height: inherit;
+        &.active {
+          margin-top: -4rem;
+        }
+      }
+    }
+    .col {
+      margin-bottom: 4rem;
+        .plan-points {
+          div {
+            &:nth-child(4) {
+              svg {
+                width: 2.3em;
+                height: 2.3em;
+              }
+            }
+            &.big {
+              svg {
+                width: 2.5em;
+                height: 2.5em;
+              }
+            }
+          }
+        }
+    }
+  }
+  @media #{$extra-large-and-up} {
+    .plan-points {
+      div {
+        span {
+          font-size: .6rem;
+        }
+      }
+    }
+ }
+ @media only screen and (min-width: 1459px) {
+   .plan-points {
+     div {
+       span {
+         font-size: .8rem;
+       }
+     }
+   }
+}
+  .bottom-part {
+    padding: 2em;
+    @include linear-gradient-b(90deg, #003B6E, #01A1E5);
+    .container {
+      position: relative;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 2.5rem;
+      line-height: 3.2rem;
+      position: relative;
+      z-index: 1;
+    }
+    h3 {
+      font-weight: 300;
+      font-size: 2.1rem;
+      margin-top: 1rem;
+    }
+    svg {
+      position: absolute;
+      bottom: -3.3em;
+      z-index: 0;
+      left: 0;
+      width: auto;
+    }
+    .unit {
+      z-index: 1;
+      position: relative;
+      width: 18em;
+      height: 18em;
+      border: .1em solid #00CCFF;
+      display: inline-block;
+      .yearly {
+        span {
+          color: #00CCFF;
+          position: relative;
+          font-weight: 300;
+          font-size: 1.4rem;
+          &:nth-child(2) {
+            font-size: 3rem;
+          }
+          &:nth-child(3) {
+            top: -1.2em;
+          }
+          &:last-child {
+            left: -1em;
+            font-size: 1rem;
+          }
+        }
+      }
+      p {
+        line-height: 1rem;
+        padding: 0;
+        margin: 0;
+        &.small {
+          font-size: .8rem;
+        }
+        &.big {
+          font-size: 2.5rem;
+          font-weight: 300;
+          line-height: 4.5rem;
+        }
+      }
+      &:last-child {
+        background: #005C80;
+        margin-left: 1em;
+      }
+    }
+  }
+  @media #{$medium-and-down} {
+    .bottom-part {
+      @include linear-gradient-b(0, transparent, transparent);
+      padding: 0;
+        &:before {
+          content: '';
+            @include linear-gradient-b(90deg, #003B6E, #01A1E5);
+            padding-bottom: 15em;
+            margin-bottom: -12em;
+            width: 100%;
+            display: block;
+          }
+      h2 {
+        text-align: center;
+      }
+      svg {
+        max-width: 100%;
+        top: 0em;
+        left: 3em;
+        height: 12em;
+      }
+      .col {
+        margin-bottom: inherit;
+      }
+      .unit {
+        display: block;
+         margin: 0 auto;
+        &:first-child {
+          margin-top: 3em;
+          .white-text {
+            color: black !important;
+          }
+        }
+        &:last-child {
+          margin: 1em auto;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+nav {
+  background-color: $primary-color !important;
+  transition: margin 0.7s;
+
+  .brand-logo img {
+    height: 1.1em;
+    }
+
+  .brand-logo {
+    height: 100%;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    }
+  i {
+      padding: 0 .2em;
+    }
+  @media #{$large-and-up} {
+    background-color: transparent !important;
+    width: calc(100vw - 3em) !important;
+    right: 0;
+    margin-top: 2em;
+    box-shadow: none !important;
+
+    &:before {
+      position: absolute;
+      z-index: -1;
+      bottom: 0;
+      right: 0;
+      width: calc(100% - 22em);
+      border-bottom: #B7B7B7 0.3em solid;
+      height: 100%;
+      content: "";
+      background-color: white;
+        }
+
+    ul {
+      left: 22em;
+      position: relative;
+        }
+
+    ul a {
+      color: $primary-color !important;
+      font-weight: bold;
+      padding: 0 10px;
+        }
+
+    .brand-logo {
+      border-bottom: #004B82 0.17em solid;
+        }
+
+    .brand-logo img {
+      height: calc(64px - .17em);
+        }
+    }
+  @media #{$extra-large-and-up} {
+      ul a {
+          padding: 0 15px;
+          }
+      }
+}
+
+@media #{$large-and-up} {
+  nav.to-top {
+    margin-top: 0;
+
+    .brand-logo, &:before {
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3) !important;
+    }
+  }
+}
+
+
+.side-nav {
+  @extend .grey, .darken-4;
+
+  a {
+    @extend .white-text;
+      }
+
+  li {
+    border-bottom: 0.2em dotted #323232;
+    &.active {
+        @extend .grey.darken-3;
+        border-bottom: 0;
+        }
+      }
+}
+
+.quick-contact {
+  @extend .white-text;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 2.3em;
+  padding: 0.2em;
+  margin-bottom: -2.3em;
+  z-index: 2;
+  position: relative;
+
+  .row {
+    margin-bottom: 0;
+    }
+
+  .valign-wrapper {
+    justify-content: center;
+    }
+
+  i {
+    margin-right: 0.2em;
+    }
+
+  @media #{$large-and-up} {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    }
+}
